@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Scrolling - 12 Levels</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden; /* Disable horizontal scrollbar */
+      height: 300vh; /* Set a height to ensure scrolling */
+      background: linear-gradient(to bottom, #f7e2d3, #d3d8f7);
+    }
+
+    .parallax-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333; /* Text color for better contrast */
+      text-align: center;
+    }
+
+    .parallax-section {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333; /* Text color for better contrast */
+      text-align: center;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .level-container {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      padding: 20px;
+      cursor: pointer;
+      max-width: 400px;
+      width: 80%;
+      text-align: center;
+      position: relative;
+    }
+
+    .level-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .level-text {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* Connecting lines */
+    .connecting-line {
+      position: absolute;
+      height: 2px;
+      background-color: #333; /* Line color for better contrast */
+      z-index: 1;
+    }
+
+    .zigzag-line::before,
+    .zigzag-line::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      background-color: #333; /* Line color for better contrast */
+      z-index: 1;
+    }
+
+    .zigzag-line::before {
+      top: 50%;
+      left: 0;
+      transform-origin: 0 0;
+      animation: zigzagBefore 1s infinite linear;
+    }
+
+    .zigzag-line::after {
+      top: 50%;
+      right: 0;
+      transform-origin: 100% 0;
+      animation: zigzagAfter 1s infinite linear;
+    }
+
+    @keyframes zigzagBefore {
+      50% {
+        transform: scaleY(0);
+      }
+    }
+
+    @keyframes zigzagAfter {
+      50% {
+        transform: scaleY(0);
+      }
+    }
+
+    /* Define parallax backgrounds */
+    .level1 { background-image: url('level1.jpg'); }
+    .level2 { background-image: url('level2.jpg'); }
+    .level3 { background-image: url('level3.jpg'); }
+    /* ... Repeat for the other levels */
+
+  </style>
+</head>
+<body>
+
+<div class="parallax-container">
+  <div class="parallax-section level1">
+    <div class="level-container" onclick="navigateToLevel(1)">
+      <img class="level-image" src="image1.png" alt="Level 1 Image">
+      <div class="level-text">Swap and Share Platform</div>
+      <p>
+        Join the #SwapNShareChallenge and embrace a sustainable lifestyle by swapping and sharing goods, reducing waste, and building a community committed to positive environmental impact.
+        
+        </p>
+      <div class="connecting-line zigzag-line" style="height: 50px;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-container">
+  <div class="zigzag-line" style="top: 50%; left: 50%; height: 50px;"></div>
+  <div class="parallax-section level2">
+    <div class="level-container" onclick="navigateToLevel(2)">
+      <img class="level-image" src="image2.png" alt="Level 2 Image">
+      <div class="level-text">Clean Air Drive</div>
+      <p>RTA Pollution Check Challenge :Take the wheel for cleaner skies – participate in the Clean Air Drive to reduce vehicle emissions and breathe fresh air into our communities.</p>
+      <div class="connecting-line zigzag-line" style="height: 50px;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-container">
+  <div class="zigzag-line" style="top: 50%; left: 50%; height: 50px;"></div>
+  <div class="parallax-section level3">
+    <div class="level-container" onclick="navigateToLevel(3)">
+      <img class="level-image" src="image5.jpg" alt="Level 3 Image">
+      <div class="level-text">Idea for a Change</div>
+      <p>Bring out all of your old stuff and transform it into something exquisite.</p>
+      <div class="connecting-line zigzag-line" style="height: 50px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Repeat for levels 3 to 12 -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const parallaxSections = document.querySelectorAll('.parallax-section');
+
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.scrollY;
+
+      parallaxSections.forEach((section, index) => {
+        const direction = index % 2 === 0 ? 1 : -1; // Alternate direction
+        const xPos = direction * Math.max(scrollTop * 0.2 * (index + 1),200);
+        section.style.transform = `translateX(${xPos}px)`;
+      });
+    });
+  });
+
+  function navigateToLevel(level) {
+    // Open a new window or tab
+    window.open('https://example.com/other-tab', '_blank');
+  }
+</script>
+
+</body>
+</html>

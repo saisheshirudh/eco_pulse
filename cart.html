@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="cart-container">
+            <h2>My Cart</h2>
+            <div id="cart"></div>
+            <a href="shopping.html">Continue Shopping</a>
+        </div>
+
+        <div class="summary-container">
+            <div class="summary">
+                <p class="decor">PAYMENT</p>
+                <hr>
+                <div id="total">Total: $<span id="totalAmount">0.00</span></div>
+                <div id="discount">Discount: $<span id="discountAmount">0.00</span></div>
+                <div id="deliveryCharges">Delivery Charges: $<span id="deliveryChargesAmount">0.00</span></div>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

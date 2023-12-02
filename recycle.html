@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <title>Your Page Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1 class="title">Do you recycle (Yes/No)? </h1>
+            <input required class="elebill"type="checkbox" id="recycle" required><br>
+        <button class="btn" type="button" onclick="reCycle()">Next</button>
+        </div>
+        <div class="blob"></div>
+    </div>
+    
+    <script>
+        function reCycle() {
+            const recycle = document.getElementById("recycle").value;
+            localStorage.setItem("recycle",recycle);
+            window.location.href = "flights.html";
+        }
+    </script>
+</body>
+</html>

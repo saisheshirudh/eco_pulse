@@ -1,0 +1,29 @@
+<!-- flights.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <title>Your Page Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1 class="title">How many flights do you travel(less than 4 hours) </h1>
+            <input required class="elebill"type="text" id="flights" required><br>
+        <button class="btn" type="button" onclick="saveFlights
+        ()">Next</button>
+        </div>
+        <div class="blob"></div>
+    </div>
+   
+    <script>
+        function saveFlights() {
+            const flights = document.getElementById("flights").value;
+            localStorage.setItem("flights", flights);
+            window.location.href = "flights2.html";
+        }
+    </script>
+</body>
+</html>

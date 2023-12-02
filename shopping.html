@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        /* Your CSS styles for the slideshow and product grid here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slideshow-container {
+            width: 500px;
+            height: 300px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            margin-top: 40px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 100%; /* Fixed size for each slide */
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            text-align: center;
+            gap: 50px;
+            border-radius: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 100px;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+
+        .product {
+            border: 1px solid #cccccce3;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .product:hover {
+            background-color: #f0f0f0b7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="navbar.html" class="active"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="#news"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Shop Products</a>
+        <a href="brands.html"><i class="fa fa-tint" aria-hidden="true"></i>
+          Brands</a>
+          <a href="about.html"><i class="fa fa-phone" aria-hidden="true"></i>
+            Contact us</a>
+        <a href="login.html" class="split"><i class="fa fa-fw fa-user"></i> Login</a>
+        <a href="#about" class="split"><i class="fa fa-search" aria-hidden="true"></i>
+        </a>
+        <a href="cart.html" class="split"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+        
+      </div>
+<div class="slideshow-container">
+    <div class="slides">
+        <div class="slide">
+            <img src="slideshow1.jpeg.jpg" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img src="slideshow2.jpeg.jpg" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="slideshow3.jpeg.jpg" alt="Slide 3">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+       <div class="product-grid">
+        
+        <div class="product" onclick="addToCart('Product 1', 10,'image1.jpeg.jpg')">
+            <img src="image1.jpeg.jpg" alt="product1">
+            <h3>Wooden Hanger</h3>
+            <p>$20.99</p>
+        </div>
+
+        <div class="product" onclick="addToCart('Product 2', 10,'image2.webp')">
+            <img src="image2.webp" alt="Product 2">
+            <h3>LED bulbs</h3>
+            <p>$15.99</p>
+        </div>
+
+        <div class="product" onclick="addToCart('Product 3', 10,'image3.jpeg.jpg')">
+            <img src="image3.jpeg.jpg" alt="Product 1">
+            <h3>Kind Bark</h3>
+            <p>$27.99</p>
+        </div>
+
+        <div class="product" onclick="addToCart('Product 4', 10,'image4.png')">
+            <img src="image4.png" alt="Product 1">
+            <h3>Calory Burner</h3>
+            <p>$29.99</p>
+        </div>
+
+        <div class="product" onclick="addToCart('Product 5', 10,'image5.webp')">
+            <img src="image5.webp" alt="Product 1">
+            <h3>Phone Case</h3>
+            <p>$34.99</p>
+        </div>
+
+        <div class="product" onclick="addToCart('Product 6', 10.99,'image6.webp')">
+            <img src="image6.webp" alt="Product 1">
+            <h3>Bamboo Toilet Paper</h3>
+            <p>$45.99</p>
+        </div>
+
+        <div class="product" onclick="addToCart('Product 7', 10.99,'image7.jpg')">
+            <img src="image7.jpg" alt="Product 1">
+            <h3>Hand Kerchiefs</h3>
+            <p>$56.99</p>
+        </div>
+
+        <div class="product" onclick="addToCart('Product 8', 10.99,'image8.webp')">
+            <img src="image8.webp" alt="Product 1">
+            <h3>Water Bottle</h3>
+            <p>$110.99</p>
+        </div>
+
+
+
+       
+
+    
+    </div>
+
+    <a href="cart.html">Go to Cart</a>
+</div>
+
+<script>
+    // Slideshow JavaScript (as before)
+    let slideIndex = 0;
+
+    function showSlides() {
+        let slides = document.querySelector(".slides");
+        slideIndex++;
+
+        slides.style.transform = "translateX(" + (-100 * slideIndex) + "%)";
+
+        if (slideIndex === slides.children.length - 1) {
+            slideIndex = 0;
+            slides.style.transition = "none";
+            slides.style.transform = "translateX(0)";
+            setTimeout(() => {
+                slides.style.transition = "transform 1s ease-in-out";
+            });
+        }
+
+        setTimeout(showSlides, 2000);
+    }
+
+    showSlides();
+</script>
+
+<script src="cart.js"></script>
+</body>
+</html>
